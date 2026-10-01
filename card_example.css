@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 600px;
+    background-color: #ddd;
+}
+
+
+.pop {
+    background: transparent;
+    width: 100%;
+    height: 100vh;
+}
+
+.pop:popover-open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 1000px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.card .image {
+    width: 600px;
+    height: 500px;
+}
+
+.card img {
+    width: 600px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+.about {
+    padding: 30px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding: 4px;
+    color: #ddd;
+}
+
+.close-btn:hover {
+    color: #777;
+}
+
+.open-btn {
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.open-btn img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+h2{
+    margin: 0;
+    font-size: 28px;
+}

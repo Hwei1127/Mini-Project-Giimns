@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./card_example.css" />
+    </head>
+    <body>
+        <button class="open-btn" popovertarget="card-1">
+            <img src="Assets/Images/poppy.png" />
+        </button>
+
+        <div class="pop" id="card-1" popover>
+            <div class="card">
+                <div class="image">
+                    <img
+                        src="Assets/Images/poppy_banner.png"
+                        alt="Poppy Playtime banner"
+                    />
+                </div>
+
+
+                
+                <div class="about">
+                    <button
+                        class="close-btn"
+                        popovertarget="card-1"
+                        popovertargetaction="hide"
+                        aria-label="Close"
+                    >
+                        ✕
+                    </button>
+                    <h2>Poppy Playime</h2>
+
+                    <p class="desc">
+                        You must stay alive in this horror/puzzle adventure. Try
+                        to survive the vengeful toys waiting for you in the
+                        abandoned toy factory. Use your GrabPack to hack
+                        electrical circuits or nab anything from afar. Explore
+                        the mysterious facility... and don't get caught.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

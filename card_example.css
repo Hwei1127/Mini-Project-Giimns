@@ -5,7 +5,6 @@ body {
     background-color: #ddd;
 }
 
-
 .pop {
     background: transparent;
     width: 100%;
@@ -78,7 +77,109 @@ body {
     display: block;
 }
 
-h2{
+h2 {
     margin: 0;
-    font-size: 28px;
+    font-size: 30px;
+}
+
+.genre{
+    color: #777;
+    margin-top: 0;
+}
+.rating-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0px 10px 0px;
+}
+
+/* Container adjustments */
+.rating {
+    display: flex;
+    flex-direction: row-reverse; /* Flips visual layout to make selection logic work */
+    justify-content: flex-end;
+    border: none;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+/* Base Star Styles */
+.rating label {
+    font-size: 30px;
+    color: #ccc; /* Default grey color for empty stars */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/* 
+  Highlight logic: 
+  When an input is checked or hovered, highlight its label 
+  AND all preceding labels in the DOM tree (~ modifier).
+  Because the row is visually reversed, this highlights everything to the left.
+*/
+.rating input[type="radio"]:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #f5b301; /* Golden yellow color for filled stars */
+}
+
+/* Maintain checked star highlight even when hovering over lower stars */
+.rating input[type="radio"]:checked + label:hover,
+.rating input[type="radio"]:checked ~ label:hover,
+.rating label:hover ~ input[type="radio"]:checked ~ label,
+.rating input[type="radio"]:checked ~ label:hover ~ label {
+    color: #ffcc00;
+}
+
+.interaction{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0 5px 0;
+}
+
+.interaction h3{
+    font-size: 25px;
+}
+.wishlist {
+    background: none;
+    cursor: pointer;
+    border: 0;
+    font-size: 18px;
+}
+
+.wishlist:hover {
+    fill: #f5b301;
+}
+
+h3{
+    margin: 0;
+}
+
+.ratings{
+    padding: 0px;
+    margin: 0px;
+}
+
+input{
+    border-radius: 8px;
+    border: #777 solid 1px;
+    height: 15px;
+    width: 250px;
+    padding: 10px;
+
+}
+
+.btn-submit{
+    border: none;
+    border-radius: 8px;
+    height: 38px;
+    width: 60px;
+    padding: 5px;
+}
+
+.btn-submit:hover{
+    background-color: #999;
 }

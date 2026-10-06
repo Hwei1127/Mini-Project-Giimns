@@ -57,5 +57,61 @@
                 </div>
             </div>
         </div>
+
+        
+        <div class="pop" id="card-1" popover>
+            <div class="card">
+                <div class="image">
+                    <img
+                        src="Assets/Images/poppy_banner.png"
+                        alt="Poppy Playtime banner"
+                    />
+                </div>
+
+
+                
+                <div class="about">
+                    <button
+                        class="close-btn"
+                        popovertarget="card-1"
+                        popovertargetaction="hide"
+                        aria-label="Close"
+                    >
+                        ✕
+                    </button>
+                    <h2>Poppy Playime</h2>
+
+                    <p class="desc">
+                        You must stay alive in this horror/puzzle adventure. Try
+                        to survive the vengeful toys waiting for you in the
+                        abandoned toy factory. Use your GrabPack to hack
+                        electrical circuits or nab anything from afar. Explore
+                        the mysterious facility... and don't get caught.
+                    </p>
+
+                     <button class="close-btn" popovertarget="game-<?= $id ?>" popovertargetaction="hide" aria-label="Close">✕</button>
+
+                        <h3><?= e( $game['name'] ) ?></h3>
+                        <p class="genres"><?= e( $game['genres'] ?? '' ) ?></p>
+
+                        <div class="rating-row">
+                            <span class="stars" style="--rating: <?= $avg ?>" role="img" aria-label="<?= $avg ?> out of 5"></span>
+                            <span class="muted"><?= $reviews ? $avg . ' (' . count( $reviews ) . ')' : 'No reviews yet' ?></span>
+                            <button type="button" class="bookmark-btn <?= $saved ? 'active' : '' ?>"
+                                    data-game="<?= $id ?>" <?= isGuest() ? 'data-guest' : '' ?>
+                                    aria-pressed="<?= $saved ? 'true' : 'false' ?>" aria-label="Add to wishlist">
+                                <i class="bi <?= $saved ? 'bi-bookmark-fill' : 'bi-bookmark' ?>"></i>
+                            </button>
+                        </div>
+
+                        <p class="desc"><?= e( $game['description'] ) ?></p>
+
+                </div>
+            </div>
+            <div class="form">
+                
+            </div>
+        </div>
+        
     </body>
 </html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horizontal media scroller</title>
+<style>
+  :root {
+    --bg: #14171f;
+    --text: #e9ecf2;
+    --muted: #9099ab;
+    --accent: #5ac8b0;
+    --card-w: clamp(150px, 22vw, 220px);
+    --gap: 16px;
+    --pad: 24px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 48px 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  .row-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--pad);
+    margin-bottom: 14px;
+  }
+  .row-head h2 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+
+  .controls { display: flex; gap: 8px; }
+  .controls button {
+    width: 36px; height: 36px;
+    border: 1px solid #2c3242;
+    border-radius: 50%;
+    background: #1c2130;
+    color: var(--text);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .controls button:hover { background: #262d40; }
+  .controls button:focus-visible,
+  .scroller:focus-visible,
+  .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ---- The scroller itself ---- */
+  .scroller {
+    display: flex;
+    gap: var(--gap);
+    padding: 4px var(--pad) 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--pad);
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* old Edge/IE */
+  }
+  .scroller::-webkit-scrollbar { display: none; }  /* Chrome, Safari */
+
+  .card {
+    flex: 0 0 var(--card-w);
+    scroll-snap-align: start;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .poster {
+    aspect-ratio: 2 / 3;
+    border-radius: 10px;
+    background: var(--g);
+    display: grid;
+    place-items: end start;
+    padding: 12px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, .85);
+    transition: transform .2s ease;
+  }
+  .card:hover .poster { transform: translateY(-4px); }
+
+  .card h3 { margin: 10px 0 2px; font-size: .95rem; font-weight: 600; }
+  .card p  { margin: 0; font-size: .82rem; color: var(--muted); }
+
+  /* Mouse users: free scrolling + drag, no snapping */
+  @media (pointer: fine) {
+    .scroller { scroll-snap-type: none; cursor: grab; }
+    .scroller.dragging { cursor: grabbing; user-select: none; }
+    .scroller.dragging .card { pointer-events: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroller { scroll-behavior: auto; }
+    .poster { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<section aria-labelledby="row-title">
+  <div class="row-head">
+    <h2 id="row-title">Recently added</h2>
+    <div class="controls">
+      <button type="button" data-dir="-1" aria-label="Scroll left">&#8249;</button>
+      <button type="button" data-dir="1" aria-label="Scroll right">&#8250;</button>
+    </div>
+  </div>
+
+  <div class="scroller" tabindex="0" role="region" aria-label="Recently added media">
+    <a class="card" href="#"><div class="poster" >A</div><h3>Midnight Harbor</h3><p>Mystery &middot; 2026</p></a>
+    <a class="card" href="#"><div class="poster">B</div><h3>Glass Orchard</h3><p>Adventure &middot; 2025</p></a>
+    <a class="card" href="#"><div class="poster">C</div><h3>Ember Line</h3><p>Action &middot; 2026</p></a>
+    <a class="card" href="#"><div class="poster">D</div><h3>Moss &amp; Static</h3><p>Puzzle &middot; 2024</p></a>
+    <a class="card" href="#"><div class="poster">E</div><h3>Paper Satellites</h3><p>Drama &middot; 2025</p></a>
+    <a class="card" href="#"><div class="poster">F</div><h3>Low Tide Radio</h3><p>Indie &middot; 2026</p></a>
+    <a class="card" href="#"><div class="poster">G</div><h3>Salt Road</h3><p>Survival &middot; 2023</p></a>
+    <a class="card" href="#"><div class="poster">H</div><h3>Kite Season</h3><p>Family &middot; 2025</p></a>
+    <a class="card" href="#"><div class="poster">I</div><h3>Neon Orchard</h3><p>Sci-fi &middot; 2026</p></a>
+  </div>
+</section>
+
+<script>
+  const scroller = document.querySelector('.scroller');
+
+  // Mouse wheel scrolls the row sideways (until it hits either end,
+  // then the page scrolls normally).
+  scroller.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return; // already horizontal
+    const max = scroller.scrollWidth - scroller.clientWidth;
+    const atStart = scroller.scrollLeft <= 0 && e.deltaY < 0;
+    const atEnd = scroller.scrollLeft >= max - 1 && e.deltaY > 0;
+    if (atStart || atEnd) return;
+    e.preventDefault();
+    scroller.style.scrollBehavior = 'auto';
+    scroller.scrollLeft += e.deltaY;
+  }, { passive: false });
+
+  // Click and drag with the mouse.
+  let startX = 0, startLeft = 0, down = false;
+  scroller.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    down = true;
+    startX = e.clientX;
+    startLeft = scroller.scrollLeft;
+  });
+  window.addEventListener('pointermove', e => {
+    if (!down) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 4) {
+      scroller.classList.add('dragging');
+      scroller.style.scrollBehavior = 'auto';
+    }
+    scroller.scrollLeft = startLeft - dx;
+  });
+  window.addEventListener('pointerup', () => {
+    down = false;
+    scroller.classList.remove('dragging');
+  });
+
+  // Arrow buttons scroll by roughly one screen of cards.
+  document.querySelectorAll('.controls button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      scroller.scrollBy({ left: Number(btn.dataset.dir) * scroller.clientWidth * 0.8, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>

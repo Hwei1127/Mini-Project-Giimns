@@ -33,11 +33,6 @@ body{
     height: 100%;
 }
 
-.nav-bar {
-    display: flex;
-    flex-direction: row;
-}
-
 .pages {
     display: flex;
     display: flex;
@@ -114,10 +109,4 @@ body{
         0 0 8px #00bfff,
         0 0 16px #008cff,
         0 0 30px #006eff;
-}
-
-.banner{
-        background-image: url(./Assets/Images/banner_long.png);
-    background-size: cover;
-    background-position: center;
 }

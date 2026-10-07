@@ -26,41 +26,41 @@ body {
     display: flex;
     flex-direction: row;
     background-color: white;
-    width: 1000px;
-    height: 500px;
-    border-radius: 10px;
+    width: min(1000px, 95vw);
+    height: 600px;
+    /* border-radius: 10px; */
 }
 
 .card .image {
     width: 600px;
-    height: 500px;
+    height: 600px;
 }
 
 .card img {
     width: 600px;
-    height: 500px;
+    height: 600px;
     object-fit: cover;
-    border-radius: 10px 0 0 10px;
+    /* border-radius: 10px 0 0 10px; */
 }
 
 .about {
-    padding: 30px;
+    padding: 30px 20px 5px 30px;
 }
 
 .close-btn {
     position: absolute;
-    top: 14px;
-    right: 16px;
+    top: -65px;
+    right: -260px;
     background: none;
     border: none;
     cursor: pointer;
     font-size: 1.3rem;
     padding: 4px;
-    color: #ddd;
+    color: white;
 }
 
 .close-btn:hover {
-    color: #777;
+    color: #ddd;
 }
 
 .open-btn {
@@ -82,10 +82,27 @@ h2 {
     font-size: 30px;
 }
 
-.genre{
-    color: #777;
-    margin-top: 0;
+.title{
+     border-bottom: 1px solid #ddd;
 }
+.section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.genre {
+    color: #777;
+    margin: 0;
+    padding: 10px 0px 0px 0px;
+}
+
+.wishlist {
+    background: none;
+    cursor: pointer;
+    border: 0;
+    font-size: 18px;
+}
+
 .rating-form {
     display: flex;
     flex-direction: row;
@@ -107,7 +124,7 @@ h2 {
 
 /* Base Star Styles */
 .rating label {
-    font-size: 30px;
+    font-size: 25px;
     color: #ccc; /* Default grey color for empty stars */
     cursor: pointer;
     transition: color 0.2s ease;
@@ -133,53 +150,164 @@ h2 {
     color: #ffcc00;
 }
 
-.interaction{
+.interaction {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 0 5px 0;
+    align-items: center;
+    height: 40px;
+    /* padding: 10px 0 5px 0; */
 }
 
-.interaction h3{
+.interaction h3 {
     font-size: 25px;
-}
-.wishlist {
-    background: none;
-    cursor: pointer;
-    border: 0;
-    font-size: 18px;
 }
 
 .wishlist:hover {
     fill: #f5b301;
 }
 
-h3{
+h3 {
     margin: 0;
 }
 
-.ratings{
+h4 {
+    font-size: 20px;
+}
+
+.description{
+     border-bottom: 1px solid #ddd;
+}
+
+.comment {
+    height: 300px;
+    overflow-y: auto;
+    padding-right: 6px;
+
+}
+
+.comment {
+    scrollbar-width: none;
+}
+
+.comment-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.comment-item p {
+    margin: 4px 0 0;
+    font-size: 14px;
+}
+.click {
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    padding: 5px;
+    background-color: rgb(0, 157, 255);
+}
+
+.click a {
+    text-decoration: none;
+    color: white;
+    padding-right: 10px;
+}
+
+.click i {
+    color: white;
+}
+
+.review {
+    display: flex;
+    flex-direction: column;
+}
+.ratings {
     padding: 0px;
     margin: 0px;
 }
 
-input{
-    border-radius: 8px;
-    border: #777 solid 1px;
-    height: 15px;
-    width: 250px;
-    padding: 10px;
-
+.add-comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height:40px;
 }
 
-.btn-submit{
+.review{
+     border-top: 1px solid #ddd;
+     padding:0px;
+}
+
+.add-comment input {
+    width: auto;
+    min-width: 0;
+    border-radius: 8px;
+    border: none;
+    height: 25px;
+    outline: none;
+}
+
+.btn-submit {
     border: none;
     border-radius: 8px;
     height: 38px;
     width: 60px;
     padding: 5px;
+    background-color: transparent;
+    color: rgb(0, 157, 255);
+    font-weight: bolder;
 }
 
-.btn-submit:hover{
-    background-color: #999;
+@media (max-width: 800px) {
+    .card {
+        flex-direction: column;
+        height: 650px;
+        overflow-y: auto;
+        border-radius: 10px;
+        padding-bottom:5px;
+    }
+
+    .card .image {
+        width: 100%;
+        height: 220px;
+    }
+
+    .card img {
+        width: 100%;
+        height: 220px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .about {
+        padding: 20px 10px 5px 10px;
+    }
+
+    .comment {
+        height: 290px;
+    }
+
+    .review {
+        position: sticky;
+        bottom: 0;
+        z-index: 1;
+        background: white; /* so scrolling content doesn't show through */
+        border-top: 1px solid #ddd; /* replaces the hr */
+        padding: 0;
+    }
+
+    /* close button now sits on top of the image, so make it visible */
+    .close-btn {
+        color: white;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        font-size: 20px;
+    }
+
+    .close-btn:hover {
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+    }
 }

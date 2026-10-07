@@ -33,76 +33,107 @@
                         >
                             ✕
                         </button>
-                        <h2>Poppy Playime</h2>
-                        <p class="genre">Adventure · Horror · Puzzle</p>
-                        <p class="desc">
-                            You must stay alive in this horror/puzzle adventure.
-                            Try to survive the vengeful toys waiting for you in
-                            the abandoned toy factory. hack electrical circuits.
-                        </p>
 
-                        <div class="interaction">
-                            <h3>$29.99</h3>
-                            <button
-                                type="button"
-                                class="wishlist"
-                                aria-pressed="false"
-                                aria-label="Add to wishlist"
-                            >
-                                <i class="bi bi-bookmark"></i>
-                            </button>
+                        <div class="title">
+                            <div class="section">
+                                <h2>Poppy Playime</h2>
+                                <button
+                                    type="button"
+                                    class="wishlist"
+                                    aria-pressed="false"
+                                    aria-label="Add to wishlist"
+                                >
+                                    <i class="bi bi-bookmark"></i>
+                                </button>
+                            </div>
+                            <p class="genre">Horror · Puzzle</p>
                         </div>
 
-                        <form class="rating-form">
-                            <h3>Rating</h3>
-                            <fieldset class="rating">
-                                <input
-                                    type="radio"
-                                    id="star5"
-                                    name="rating"
-                                    value="5"
-                                /><label for="star5" title="5 stars"
-                                    >&#9733;</label
-                                >
-                                <input
-                                    type="radio"
-                                    id="star4"
-                                    name="rating"
-                                    value="4"
-                                /><label for="star4" title="4 stars"
-                                    >&#9733;</label
-                                >
-                                <input
-                                    type="radio"
-                                    id="star3"
-                                    name="rating"
-                                    value="3"
-                                /><label for="star3" title="3 stars"
-                                    >&#9733;</label
-                                >
-                                <input
-                                    type="radio"
-                                    id="star2"
-                                    name="rating"
-                                    value="2"
-                                /><label for="star2" title="2 stars"
-                                    >&#9733;</label
-                                >
-                                <input
-                                    type="radio"
-                                    id="star1"
-                                    name="rating"
-                                    value="1"
-                                /><label for="star1" title="1 star"
-                                    >&#9733;</label
-                                >
-                            </fieldset>
-                        </form>
-                        <hr />
-
+                        <div class="description">
+                            <p class="desc">
+                                You must stay alive in this horror/puzzle
+                                adventure. Try to survive the vengeful toys
+                                waiting for you in the abandoned toy factory.
+                                hack electrical circuits.
+                            </p>
+                            <div class="interaction">
+                                <form class="rating-form">
+                                    <h4>Rating</h4>
+                                    <fieldset class="rating">
+                                        <input
+                                            type="radio"
+                                            id="star5"
+                                            name="rating"
+                                            value="5"
+                                        /><label for="star5" title="5 stars"
+                                            >&#9733;</label
+                                        >
+                                        <input
+                                            type="radio"
+                                            id="star4"
+                                            name="rating"
+                                            value="4"
+                                        /><label for="star4" title="4 stars"
+                                            >&#9733;</label
+                                        >
+                                        <input
+                                            type="radio"
+                                            id="star3"
+                                            name="rating"
+                                            value="3"
+                                        /><label for="star3" title="3 stars"
+                                            >&#9733;</label
+                                        >
+                                        <input
+                                            type="radio"
+                                            id="star2"
+                                            name="rating"
+                                            value="2"
+                                        /><label for="star2" title="2 stars"
+                                            >&#9733;</label
+                                        >
+                                        <input
+                                            type="radio"
+                                            id="star1"
+                                            name="rating"
+                                            value="1"
+                                        /><label for="star1" title="1 star"
+                                            >&#9733;</label
+                                        >
+                                    </fieldset>
+                                </form>
+                                <button class="click">
+                                    <a href="steam://launch/1721470/Dialog"
+                                        >Play Now</a
+                                    ><i class="bi bi-box-arrow-up-right"></i>
+                                </button>
+                            </div>
+                        </div>
                         <div class="comment">
-                            <h3>Comments</h3>
-                            <ul class="review-list"></ul>
+                            <div class="comment-item">
+                                <strong>user1</strong>
+                                <p>Great game, very scary!</p>
+                            </div>
+                            <div class="comment-item">
+                                <strong>user2</strong>
+                                <p>The puzzles are fun.</p>
+                            </div>
+                            <div class="comment-item">
+                                <strong>user1</strong>
+                                <p>Great game, very scary!</p>
+                            </div>
+                            <div class="comment-item">
+                                <strong>user2</strong>
+                                <p>The puzzles are fun.</p>
+                            </div>
+                            <div class="comment-item">
+                                <strong>user1</strong>
+                                <p>Great game, very scary!</p>
+                            </div>
+                            <div class="comment-item">
+                                <strong>user2</strong>
+                                <p>The puzzles are fun.</p>
+                            </div>
                         </div>
 
                         <form class="review">
@@ -148,15 +179,17 @@
                                     >&#9733;</label
                                 >
                             </fieldset>
-                            <input
-                                name="text"
-                                placeholder="Write a review"
-                                autocomplete="off"
-                                required
-                            />
-                            <button type="submit" class="btn-submit">
-                                Post
-                            </button>
+                            <div class="add-comment">
+                                <input
+                                    name="text"
+                                    placeholder="Write a review..."
+                                    autocomplete="off"
+                                    required
+                                />
+                                <button type="submit" class="btn-submit">
+                                    Post
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>

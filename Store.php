@@ -52,7 +52,7 @@
                     <input type="search" placeholder="Search" />
                 </div>
                 <div class="profile">
-                    <a href="">
+                    <a href="./Users.php">
                     <i class="bi bi-person-fill"></i>
                     </a>
                 </div>

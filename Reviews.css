@@ -32,36 +32,39 @@ body {
     height: 100%;
 }
 
-
-.interaction{
-    height: 600px;
+.interactions {
+    height: 580px;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
 }
 
+.interaction {
+    padding: 10px;
+}
 
-
-
-
-
-
-
+.reviews {
+    background-color: #111111;
+    border-radius: 5px;
+}
 
 .exit {
     display: flex;
     flex-direction: column;
-    font-size: 16px;
-    padding: 20px 0px 12px 0px;
+    font-size: 19px;
 }
 
-.exit a {
+a {
     text-decoration: none;
     color: white;
+    padding: 5px;
 }
 
-.exit a:hover {
+a:hover {
     filter: drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 1px #00bfff)
         drop-shadow(0 0 5px #004cff);
 }
 
-.exit i {
+i {
     padding: 10px;
 }

@@ -27,7 +27,7 @@
             href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="Admin.css" />
+        <link rel="stylesheet" href="Wishlist.css" />
     </head>
     <body>
         <div class="side">
@@ -42,24 +42,15 @@
                         ><i class="bi bi-person-fill"></i>Profile</a
                     >
                 </div>
-                <div class="created interaction">
-                    <a href="./Created.php"
-                        ><i class="bi bi-plus-lg"></i>Created</a
-                    >
-                </div>
-                <div class="games interaction">
-                    <a href="./Games.php"
-                        ><i class="bi bi-controller"></i>Games</a
+
+                <div class="wishlist interaction">
+                    <a href="./Wishlist.php"
+                        ><i class="bi bi-bookmark"></i>Wishlist</a
                     >
                 </div>
                 <div class="reviews interaction">
                     <a href="./Reviews.php"
                         ><i class="bi bi-pencil-square"></i>Reviews</a
-                    >
-                </div>
-                <div class="users interaction">
-                    <a href="./Users.php"
-                        ><i class="bi bi-people-fill"></i>Users</a
                     >
                 </div>
             </div>

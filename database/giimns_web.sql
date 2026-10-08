@@ -87,7 +87,7 @@ INSERT INTO games (name, image, description, price) VALUES
 ('Stardew Valley',    'stardew.png',          'Inherit a run-down farm, grow crops, raise animals and befriend the townspeople.', 14.99);
 
 INSERT INTO game_genres (game_id, genre_id) VALUES
-(1, 3), (1, 5), (1, 2),          -- Poppy Playtime: Horror, Puzzle, Adventure
+(1, 3), (1, 5),          -- Poppy Playtime: Horror, Puzzle
 (2, 2), (2, 4),                  -- Subnautica: Adventure, Survival
 (3, 1), (3, 3), (3, 4),          -- Resident Evil 4: Action, Horror, Survival
 (4, 5), (4, 2),                  -- Portal 2: Puzzle, Adventure

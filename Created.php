@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=, initial-scale=1.0" />
-        <title>Users</title>
+        <title>Profile</title>
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -27,19 +27,41 @@
             href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="Users.css" />
+        <link rel="stylesheet" href="Admin.css" />
     </head>
     <body>
         <div class="side">
             <div class="logo">
-                <img src="./Assets/Images/logo1.png" />
+                <a href="./Profile.php"
+                    ><img src="./Assets/Images/logo1.png"
+                /></a>
             </div>
-            <div class="interaction">
-                <div class="profile"></div>
-                <div class="create"></div>
-                <div class="games"></div>
-                <div class="review"></div>
-                <div class="users"></div>
+            <div class="interactions">
+                <div class="profile interaction">
+                    <a href="./Profile.php"
+                        ><i class="bi bi-person-fill"></i>Profile</a
+                    >
+                </div>
+                <div class="created interaction">
+                    <a href="./Created.php"
+                        ><i class="bi bi-plus-lg"></i>Created</a
+                    >
+                </div>
+                <div class="games interaction">
+                    <a href="./Games.php"
+                        ><i class="bi bi-controller"></i>Games</a
+                    >
+                </div>
+                <div class="reviews interaction">
+                    <a href="./Reviews.php"
+                        ><i class="bi bi-pencil-square"></i>Reviews</a
+                    >
+                </div>
+                <div class="users interaction">
+                    <a href="./Users.php"
+                        ><i class="bi bi-people-fill"></i>Users</a
+                    >
+                </div>
             </div>
             <div class="exit">
                 <a href="./Store.php"
